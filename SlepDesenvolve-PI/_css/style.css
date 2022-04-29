@@ -1,0 +1,532 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+ /*-------MENU------*/ 
+  nav a  {
+    color: #e7e7e7;
+    text-decoration: none;    
+  }
+  
+  nav a:hover {    
+    color:#c9c9ff;    
+  }
+  
+  .logo {
+    
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background: #373737;
+    height: 8vh;
+
+  }
+  
+  
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+  }
+  
+  .mobile-menu {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
+    transition: 0.3s;
+  }
+  
+  @media (max-width: 999px) {
+    body {
+      overflow-x: hidden;
+    }
+    .nav-list {
+      position: absolute;
+      top: 8vh;
+      right: 0;
+      width: 50vw;
+      height: 92vh;
+      background: #353535;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in;
+    }
+    .nav-list li {
+      margin-left: 0;
+      opacity: 0;
+    }
+    .mobile-menu {
+      display: block;
+    }
+  }
+  
+  .nav-list.active {
+    transform: translateX(0);
+  }
+  
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+  }
+  
+  .mobile-menu.active .line2 {
+    opacity: 0;
+  }
+  
+  .mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+  }
+
+  /*--------------------------------------------------*/
+  /*--------------------------------------------------*/
+  /*--------------------------------------------------*/
+  
+  /* -- BODY -- */
+  body {
+    font-family: Nunito, sans-serif;
+    background: #1c1c1c;
+    display: column;
+    justify-content: center;
+    min-width: 100vh;
+    flex-direction: column;
+}
+
+/* -- TExto -- */
+h1,
+h2,
+h3 {
+    font-family: Asap, sans-serif;
+    color: #ffffff;
+}
+
+p {
+    font-family: Asap, sans-serif;
+    color: #ffffff;
+}
+
+/*Botão Banner Animado*/
+header a {
+    position: relative;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 40 px;
+    text-decoration: none;
+    transition: 1s;
+    overflow: hidden;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0004);
+}
+
+header a:hover {
+    background: var(--clr);
+    box-shadow: 0 0 10px var(--clr);
+}
+
+header a::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 800%;
+    background: var(--clr);
+    transition: 1s;
+    animation: animate 2s linear infinite;
+    animation-delay: calc(0.33s * var(--i));
+}
+
+header a:hover::before {
+    width: 120%;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+header a::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: #1c1c1c;
+    transition: 0.5s;
+}
+
+header a:hover::after {
+    background: var(--clr);
+}
+
+header a span {
+    position: relative;
+    z-index: 1;
+    font-size: 1em;
+    color: #ffffff;
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    transition: 0.5s;
+}
+
+header a:hover span {
+    opacity: 1;
+}
+
+/*Final animação <-------*/
+
+
+/*--------CABEÇALHO--------------*/
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('../_img/banner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+
+}
+
+header h1 {
+  color: #ffffff;
+}
+
+header p {
+  margin-bottom: 2.5em;
+}
+
+/*SOBRE*/
+
+
+#empresa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px 10px 20px 20px;
+  background-color: #303030;
+  color: #ffffff;
+}
+
+#empresa h2 {
+  color: #ffffff;
+}
+
+#empresa p {
+  margin-bottom: 2.5em;
+  max-width: 1000px;
+}
+
+
+
+#empresa>a {
+  display: inline-block;
+  padding: 10px 0;
+  width: 100%;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+#empresa a:hover {
+  color: #999af5;
+  font-size: 17px;
+}
+
+/*Carrosel*/
+
+.carrosel {
+  display: block;
+  height: 293px;
+  width: 600px;
+  margin: auto;
+  margin-top: 20px;
+  position: relative;
+
+}
+
+.carrosel li {
+  list-style: none;
+  position: absolute;
+}
+
+.carrosel img {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  vertical-align: top;
+}
+
+.carrosel input {
+  display: none;
+}
+
+.carrosel label {
+  background-color: #000;
+  bottom: 10px;
+  cursor: pointer;
+  display: block;
+  height: 10px;
+  position: absolute;
+  width: 10px;
+  z-index: 10;
+}
+
+.carrosel li:nth-child(1) label {
+  left: 10px;
+}
+
+.carrosel li:nth-child(2) label {
+  left: 40px;
+}
+
+.carrosel li:nth-child(3) label {
+  left: 70px;
+}
+
+.carrosel img {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.carrosel li input:checked~img {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
+}
+
+/*SERVIÇOS*/
+
+#servicos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+}
+
+#servicos div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  margin-top: 30px;
+}
+
+#servicos img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+}
+
+
+
+/*FOTOS*/
+
+#fotos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+#fotos h2 {
+  margin-bottom: 20px;
+}
+
+#fotos img {
+  width: 100%;
+}
+
+/*CONTATO*/
+
+#contato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+#contato h2 {
+  color: #fff;
+}
+
+#contato div a {
+  display: flex;
+  color: #ffffff;
+  background: #303030;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+#contato div a:hover {
+  display: flex;
+  color: #ffffff;
+  background: #595bca;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+
+
+
+/*RODAPÉ*/
+
+footer {
+  text-align:justify;
+  padding: 30px;
+  background-color: #333333;
+  color: #ffffff;
+}
+
+footer a {
+  text-align:left;
+  text-decoration: none;
+  color: #fff;
+}
+
+footer a:hover {
+  color: #999af5;
+  font-size: 17px;
+}
+
+footer p {
+  padding: 20px;
+  text-align:center;
+  text-decoration: none;
+  color: #fff;
+}
+
+/*-------------RESPONSIVO*-----------*/
+/*-------------RESPONSIVO*-----------*/
+/*-------------RESPONSIVO*-----------*/
+/*-------------RESPONSIVO*-----------*/
+
+@media screen and (min-width: 768px) {
+    /*nav*/
+    /*
+    nav{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    nav ul {
+        flex-direction: row;
+        width: 70%;
+    }  
+    */
+
+    /*CABEÇALHO*/
+
+    header{
+        height: 600px;
+        height: 60vh;
+        justify-content: center;
+    }
+
+    /*SOBRE*/
+
+    #sobre{
+        height:250px;
+        height:30vh;
+        justify-content:center;
+    }
+    /*SERVIÇOS*/
+
+    #servicos{
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        max-width: 1000px;
+        margin: 0 auto;
+        
+    }
+
+    #servicos h2{
+        text-align: center;
+        width: 100%;
+    }
+
+    #servicos div {
+        flex-grow: 1;
+        flex-basis: 150px;
+        padding: 0 10px;
+        
+    }
+
+    /*FOTOS*/
+
+    #fotos{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #fotos h2 {
+        width: 100%;
+        text-align: center;
+    }
+
+    #fotos img {
+        width: 33.3333333%;
+    }
+
+    /*CONTATO*/
+
+    #contato {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    #contato h2, #contato p {
+        width: 100%;
+    }
+
+}
